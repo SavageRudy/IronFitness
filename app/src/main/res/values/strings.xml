@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">IronFitness</string>
+    <string name="name_error">Please enter your name </string>
+    <string name="email_error">Please enter an email address</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="password_error">Please enter a password</string>
+    <string name="error_invalid_password">Please enter a valid password</string>
+    <string-array name="subs">
+        <item>700/month</item>
+        <item>Null</item>
+    </string-array>
+    <string-array name="desg">
+        <item>Member</item>
+        <item>Trainer</item>
+        <item>Employee</item>
+    </string-array>
+</resources>
