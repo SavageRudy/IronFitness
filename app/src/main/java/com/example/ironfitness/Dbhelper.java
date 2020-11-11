@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -20,8 +22,8 @@ public class Dbhelper  extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase Mydb) {
-        Mydb.execSQL("create Table members(id1 INTEGER PRIMARY KEY AUTOINCREMENT , name TEXT ,email TEXT, subs TEXT, pass TEXT)");
-        Mydb.execSQL("create Table workers(id1 INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT ,email TEXT, desg TEXT , pass TEXT, salary INT)");
+        Mydb.execSQL("create Table members(id1 INTEGER PRIMARY KEY AUTOINCREMENT , name TEXT ,email TEXT, subs TEXT, pass TEXT , vald TEXT , stat TEXT)");
+        Mydb.execSQL("create Table workers(id1 INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT ,email TEXT, desg TEXT , pass TEXT, salary INT , sstat TEXT , whours TEXT , sid INT, FOREIGN KEY(sid) REFERENCES members(id1))");
 
     }
 
@@ -37,16 +39,8 @@ public class Dbhelper  extends SQLiteOpenHelper {
     //table name
     private static final String Members = "members";
 
-    //Member table coloumns
-    private static final String mid = "id1";
-    private static final String mname = "name";
-    private static final String memail = "email";
-    private static final String msubs = "subs";
-    private static final String mpass = "pass";
 
-    private static final String[] Coloumns = { mid,mname,memail,msubs,mpass};
 
-    String selection1 = mname + " = ?" + mpass + " = ?";
 
 
     public Boolean insertMembers(  String name,String email, String subs , String pass ){
@@ -56,7 +50,9 @@ public class Dbhelper  extends SQLiteOpenHelper {
         cv.put("email",email);
         cv.put("subs",subs);
         cv.put("pass",pass);
-        long result = Mydb.insert("members",null,cv);
+        cv.put("vald"," 15th October 2020");
+        cv.put("stat","Fees Pending");
+        long result = Mydb.insert(Members,null,cv);
         Mydb.close();
         if (result == -1) return false;
         else
@@ -89,7 +85,8 @@ public class Dbhelper  extends SQLiteOpenHelper {
     public Member1 getdata(String name , String pass){
         SQLiteDatabase Mydb = this.getReadableDatabase();
         Member1 member = new Member1();
-        Cursor cursor = Mydb.query(Members,Coloumns,selection1,new String[]{String.valueOf(name), String.valueOf(pass)},null,null,null,null);
+        Cursor cursor = Mydb.rawQuery("Select * from  members where name = ? and pass = ?", new String[]{name, pass});
+
         if(cursor != null) {
             cursor.moveToFirst();
             member.setId(Integer.parseInt(cursor.getString(0)));
@@ -97,6 +94,8 @@ public class Dbhelper  extends SQLiteOpenHelper {
             member.setEmail(cursor.getString(2));
             member.setsubs(cursor.getString(3));
             member.setPassword(cursor.getString(4));
+            member.setvald(cursor.getString(5));
+            member.setstat(cursor.getString(6));
             cursor.close();
         }else{
             member = null;
@@ -118,15 +117,6 @@ public class Dbhelper  extends SQLiteOpenHelper {
     //table name
     private static final String Workers = "workers";
 
-    private static final String wid = "id1";
-    private static final String wname = "name";
-    private static final String wemail = "email";
-    private static final String wdesg = "desg";
-    private static final String wpass = "pass";
-    private static final String wsal = "salary";
-
-    private static final String[] Coloumns1 = { wid,wname,wemail,wdesg,wpass,wsal};
-    String selection2 = wname + " = ?" + wpass + " = ?";
 
 
     public Boolean insertWorker(  String name,String email, String desg , String pass ){
@@ -143,7 +133,16 @@ public class Dbhelper  extends SQLiteOpenHelper {
                 cv.put("salary",500);
             }
         }
-        long result = Mydb.insert("workers",null,cv);
+        cv.put("sstat","pending");
+        if (desg.equals("Trainer")) {
+            cv.put("whours", "9am to 8pm");
+        }else{
+            if(desg.equals("Employee")){
+                cv.put("whours","5am to 10 pm");
+            }
+        }
+        cv.put("sid",0);
+        long result = Mydb.insert(Workers,null,cv);
         Mydb.close();
         if (result == -1) return false;
         else
@@ -175,7 +174,7 @@ public class Dbhelper  extends SQLiteOpenHelper {
     public Worker1 getdata2(String name , String pass){
         SQLiteDatabase Mydb = this.getReadableDatabase();
         Worker1 worker = new Worker1();
-        Cursor cursor = Mydb.query(Workers,Coloumns1,selection2,new String[]{String.valueOf(name), String.valueOf(pass)},null,null,null,null);
+        Cursor cursor = Mydb.rawQuery("Select * from  workers where name = ? and pass = ?", new String[]{name, pass});
         if(cursor != null) {
             cursor.moveToFirst();
             worker.setId(Integer.parseInt(cursor.getString(0)));
@@ -184,6 +183,9 @@ public class Dbhelper  extends SQLiteOpenHelper {
             worker.setdesg(cursor.getString(3));
             worker.setPassword(cursor.getString(4));
             worker.setsal(Integer.parseInt(cursor.getString(5)));
+            worker.setsstat(cursor.getString(6));
+            worker.setwhours(cursor.getString(7));
+            worker.setsid(Integer.parseInt(cursor.getString(8)));
             cursor.close();
         }else{
             worker = null;

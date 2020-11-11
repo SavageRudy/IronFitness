@@ -7,6 +7,9 @@ public class Member1 {
     private String email;
     private String password;
     private String subs;
+    private String vald;
+    private String stat;
+
 
     public int getId() {
         return id;
@@ -41,6 +44,20 @@ public class Member1 {
     }
     public void setsubs(String subs) {
         this.subs = subs;
+    }
+
+    public String getvald() {
+        return vald;
+    }
+    public void setvald(String vald) {
+        this.vald = vald;
+    }
+
+    public String getstat() {
+        return stat;
+    }
+    public void setstat(String stat) {
+        this.stat = stat;
     }
 
 }

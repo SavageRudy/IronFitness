@@ -11,14 +11,80 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
             android:id="@+id/signout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SIGN OUT"
-            android:layout_marginLeft="300dp"/>
+            android:layout_marginLeft="290dp"/>
+    </LinearLayout>
+     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+         android:layout_marginTop="25dp">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="95dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="15dp"/>
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="50dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="40dp"/>
+
+        <TextView
+            android:id="@+id/subs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subs"
+            android:textSize="50dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:id="@+id/valid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valid"
+            android:textSize="50dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+        <TextView
+            android:id="@+id/Status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending"
+            android:textSize="50dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="15dp"/>
+
+            <Button
+                android:id="@+id/pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PAY NOw"
+                android:layout_marginLeft="20dp"/>
+
+    </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

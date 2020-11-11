@@ -5,6 +5,7 @@
     <string name="error_invalid_email">Please enter a valid email address</string>
     <string name="password_error">Please enter a password</string>
     <string name="error_invalid_password">Please enter a valid password</string>
+    <string name="passmatcherror">Passwords you have entered do no match </string>
     <string-array name="subs">
         <item>700/month</item>
         <item>Null</item>

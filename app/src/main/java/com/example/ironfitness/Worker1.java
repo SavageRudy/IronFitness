@@ -7,6 +7,10 @@ public class Worker1 {
     private String email;
     private String password;
     private String desg;
+    private int sid;
+    private String whours;
+    private String sstat;
+
 
     public int getId() {
         return id;
@@ -49,4 +53,26 @@ public class Worker1 {
     public void setdesg(String desg) {
         this.desg = desg;
     }
+
+    public String getsstat() {
+        return sstat;
+    }
+    public void setsstat(String sstat) {
+        this.sstat = sstat;
+    }
+
+    public String getwhours() {
+        return whours;
+    }
+    public void setwhours(String whours) {
+        this.whours = whours;
+    }
+
+    public int  getsid() {
+        return sid;
+    }
+    public void setsid(int sid) {
+        this.sid = sid;
+    }
 }
+

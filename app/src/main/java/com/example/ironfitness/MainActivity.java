@@ -40,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             }else if (session.getString("desg", "").equals("Worker")){
                 Intent intent1 = new Intent(MainActivity.this,WorkerActivity.class);
                 startActivity(intent1);
+            }else if (session.getString("desg", "").equals("Manager")){
+                Intent intent1 = new Intent(MainActivity.this,ManagerActivity.class);
+                startActivity(intent1);
             }
         }
     }
@@ -53,27 +56,33 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
                 String pass = password.getText().toString();
                 if(user.equals("") || pass.equals("")){
                     Toast.makeText(MainActivity.this,"Please enter the credentials",Toast.LENGTH_SHORT).show();
-                }else{
-                    if(db.checkUser1(user,pass)){
-                        Intent intent2 = new Intent(MainActivity.this,MemberActivity.class);
-                        SharedPreferences.Editor editor = session.edit();
-                        editor.putString("username",user);
-                        editor.putString("password",pass);
-                        editor.putString("desg","Member");
-                        editor.commit();
-                        startActivity(intent2);
-                    }else if (  db.checkUser2(user,pass)){
+                }else if(db.checkUser1(user,pass)){
+                    Intent intent2 = new Intent(MainActivity.this,MemberActivity.class);
+                    SharedPreferences.Editor editor = session.edit();
+                    editor.putString("username",user);
+                    editor.putString("password",pass);
+                    editor.putString("desg","Member");
+                    editor.commit();
+                    startActivity(intent2);
+                }else if ( db.checkUser2(user,pass)){
                         Intent intent2 = new Intent(MainActivity.this,WorkerActivity.class);
                         SharedPreferences.Editor editor = session.edit();
                         editor.putString("username",user);
                         editor.putString("password",pass);
-                        editor.putString("password","Worker");
+                        editor.putString("desg","Worker");
                         editor.commit();
                         startActivity(intent2);
-                    }else{
+                }else if ( user.equals("jake") && pass.equals("jake123")){
+                    Intent intent2 = new Intent(MainActivity.this,ManagerActivity.class);
+                    SharedPreferences.Editor editor = session.edit();
+                    editor.putString("username",user);
+                    editor.putString("password",pass);
+                    editor.putString("desg","Manager");
+                    editor.commit();
+                    startActivity(intent2);
+                }else{
                         Toast.makeText(MainActivity.this,"Invalid Credentials",Toast.LENGTH_SHORT).show();
                     }
-                }
                 break;
             case R.id.register: Intent intent3 = new Intent(MainActivity.this,Token.class);
                 startActivity(intent3);

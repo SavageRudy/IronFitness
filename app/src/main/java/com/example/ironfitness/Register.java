@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Register extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button reg;
-    EditText email2, name, password;
+    EditText email2, name, password,passconf;
     Spinner s1,s2;
     String text1,text2;
     boolean isNameValid, isEmailValid, isPasswordValid,isValid;
@@ -31,6 +31,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         email2 = findViewById(R.id.email2);
         password = findViewById(R.id.pass2);
         name = findViewById(R.id.name2);
+        passconf = findViewById(R.id.passconf);
 
 
         s1 = findViewById(R.id.spinner1);
@@ -55,35 +56,38 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                     String user = name.getText().toString();
                     String pass = password.getText().toString();
                     String email = email2.getText().toString();
-                    if(!db.checkMember(user)){
-                        switch (text2){
-                            case "Member":  boolean insert = db.insertMembers(user,email,text1,pass);
+                    switch (text2){
+                        case "Member":
+                                        if(!db.checkMember(user)){
+                                            boolean insert = db.insertMembers(user,email,text1,pass);
                                             if(insert){
-                                                Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getApplicationContext(), "Registered   Successfully", Toast.LENGTH_SHORT).show();
                                                 Intent intent1 = new Intent(Register.this, MainActivity.class);
                                                 startActivity(intent1);
                                             }else{
                                                 Toast.makeText(getApplicationContext(), "Registration failed", Toast.LENGTH_SHORT).show();
                                             }
-                                            break;
+                                        }else{
+                                            Toast.makeText(getApplicationContext(), "Member Already Exists", Toast.LENGTH_SHORT).show();
+                                        }
+                                        break;
                             case "Employee":
                             case "Trainer" :
                                             if(!db.checkWorker(user)) {
                                                 boolean insert1 = db.insertWorker(user, email, text2, pass);
                                                 if (insert1) {
-                                                    Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getApplicationContext(), "Registered   Successfully", Toast.LENGTH_SHORT).show();
                                                     Intent intent1 = new Intent(Register.this, MainActivity.class);
                                                     startActivity(intent1);
                                                 } else {
                                                     Toast.makeText(getApplicationContext(), "Registration failed", Toast.LENGTH_SHORT).show();
                                                 }
+                                            }else{
+                                                Toast.makeText(getApplicationContext(), "Trainer/Employee Already Exists", Toast.LENGTH_SHORT).show();
                                             }
                                             break;
-                            default: Toast.makeText(getApplicationContext(), "Worker Already Exists", Toast.LENGTH_SHORT).show();
+                            default: Toast.makeText(getApplicationContext(), "User Already Exists", Toast.LENGTH_SHORT).show();
                         }
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Member Already Exists", Toast.LENGTH_SHORT).show();
-                    }
                 }else{
 
                     Toast.makeText(getApplicationContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
@@ -120,12 +124,15 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         } else if (password.getText().length() < 6) {
             password.setError(getResources().getString(R.string.error_invalid_password));
             isPasswordValid = false;
+        } else if(!passconf.getText().toString().equals(password.getText().toString())) {
+            password.setError(getResources().getString(R.string.passmatcherror));
+            passconf.setError(getResources().getString(R.string.passmatcherror));
+            isPasswordValid = false;
         } else  {
             isPasswordValid = true;
         }
 
         if (isNameValid && isEmailValid && isPasswordValid) {
-            Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_SHORT).show();
             isValid = true;
         }else{
             isValid = false;
