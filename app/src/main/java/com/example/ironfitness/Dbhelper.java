@@ -104,6 +104,14 @@ public class Dbhelper  extends SQLiteOpenHelper {
         return member;
     }
 
+    public void updatestat( int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("stat","Fees Payed");
+        db.update(Members,values,"id1 = ?",new String[]{String.valueOf(id)});
+        db.close();
+    }
+
     public void deleteUser(String name, String pass) {
         SQLiteDatabase db = this.getWritableDatabase();
         // delete user record by nme
@@ -111,6 +119,26 @@ public class Dbhelper  extends SQLiteOpenHelper {
                 new String[]{String.valueOf(name), String.valueOf(pass)});
         db.close();
     }
+
+    public String getmembername( int id){
+        String name;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("Select name from members where id1 = ?", new String[]{String.valueOf(id)});
+        if(!cursor.equals(null) ) {
+            cursor.moveToFirst();
+            name = cursor.getString(0);
+        }else
+            name = null;
+        cursor.close();
+        return name;
+    }
+
+
+    public Cursor getallmembers(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("Select id1 AS _id , name from members",null);
+    }
+
 
     //workers table
 
@@ -192,6 +220,11 @@ public class Dbhelper  extends SQLiteOpenHelper {
         }
 
         return worker;
+    }
+
+    public Cursor getallworkers(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("Select id1 AS _id , name , desg from workers",null);
     }
 
     public void deleteUser2(String name, String pass) {

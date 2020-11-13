@@ -11,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 public class WorkerActivity extends AppCompatActivity {
     Button signout;
     SharedPreferences session;
@@ -22,6 +24,9 @@ public class WorkerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
         setContentView(R.layout.worker);
         session = getSharedPreferences("session",MODE_PRIVATE);
 
@@ -37,17 +42,19 @@ public class WorkerActivity extends AppCompatActivity {
         username= session.getString("username","");
         password = session.getString("password","");
 
-        Log.i("reachd1","reachd7");
+
         worker = db.getdata2(username,password);
-        Log.i("reachd1","reachd7");
         name.setText(worker.getName());
         email.setText(worker.getEmail());
         desg.setText(worker.getdesg());
         stat.setText(worker.getsstat());
-        Log.i("reachd1","reachd2");
         sal.setText(String.valueOf(worker.getsal()));
         work.setText(worker.getwhours());
-        stud.setText(String.valueOf(worker.getsid()));
+        if(!db.getmembername(worker.getId()).equals(null)) {
+            stud.setText(String.valueOf(db.getmembername(worker.getId())));
+        }else {
+            stud.setText("NONE");
+        }
 
         signout.setOnClickListener(new View.OnClickListener() {
             @Override

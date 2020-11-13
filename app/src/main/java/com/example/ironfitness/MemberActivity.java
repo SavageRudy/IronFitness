@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 public class MemberActivity extends AppCompatActivity {
     SharedPreferences session;
     Button signout,pay;
@@ -17,10 +19,15 @@ public class MemberActivity extends AppCompatActivity {
     String username,password;
     TextView name,subs,email,valid,status;
     Member1 member1 = new Member1();
+    Member1 member2 = new Member1();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
+
         setContentView(R.layout.member);
 
         session = getSharedPreferences("session",MODE_PRIVATE);
@@ -57,4 +64,13 @@ public class MemberActivity extends AppCompatActivity {
             }
         });
 
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int id = member1.getId();
+                db.updatestat(id);
+                member2 = db.getdata(username,password);
+                status.setText(member2.getstat());
+            }
+        });
     }}

@@ -15,6 +15,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 public class Register extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button reg;
     EditText email2, name, password,passconf;
@@ -26,6 +28,9 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
         setContentView(R.layout.register);
         reg = findViewById(R.id.register);
         email2 = findViewById(R.id.email2);

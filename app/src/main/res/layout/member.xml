@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email"
-            android:textSize="50dp"
+            android:textSize="40dp"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="40dp"/>
@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Subs"
-            android:textSize="50dp"
+            android:textSize="40dp"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="20dp"/>
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Valid"
-            android:textSize="50dp"
+            android:textSize="40dp"
             android:textColor="#FFFFFF"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="15dp"/>
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Pending"
-            android:textSize="50dp"
+            android:textSize="40dp"
             android:textColor="#FFFFFF"
             android:layout_marginLeft="15dp"/>
 

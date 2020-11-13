@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Single List Item Design -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:id="@+id/displist1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dip"
+    android:textSize="16dip"
+    android:textStyle="bold" >
+</TextView>
+<TextView
+android:id="@+id/displist2"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:padding="10dip"
+android:textSize="16dip"
+android:textStyle="bold" >
+
+</TextView>
+</LinearLayout>

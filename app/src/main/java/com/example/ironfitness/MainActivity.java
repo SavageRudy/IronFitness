@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity implements  View.OnClickListener{
     Button button2,button3;
     Dbhelper db;
@@ -22,6 +24,9 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
         setContentView(R.layout.activity_main);
         button2 = findViewById(R.id.login);
         button3 = findViewById(R.id.register);
