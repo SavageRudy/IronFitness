@@ -9,16 +9,16 @@
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="100dp"
-        android:text="Full Name"
+        android:text="@string/full_name"
         android:textColor="#FFFFFF"/>
 
     <EditText
         android:id="@+id/name2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:background="#C5BFBF"
         android:ems="10"
         android:textColor="#000000" />
@@ -27,15 +27,15 @@
         android:id="@+id/secTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
-        android:layout_marginLeft="100dp"
+        android:text="@string/email"
+        android:layout_marginStart="100dp"
         android:textColor="#FFFFFF"
         android:layout_marginTop="20dp"/>
     <EditText
         android:id="@+id/email2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:ems="10"
         android:background="#C5BFBF"
         android:textColor="#000000"
@@ -51,7 +51,7 @@
             android:id="@+id/spinner1"
             android:layout_width="87dp"
             android:layout_height="37dp"
-            android:layout_marginLeft="100dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="20dp"
             android:background="#C5BFBF"
             tools:ignore="InvalidId" />
@@ -60,7 +60,7 @@
             android:id="@+id/spinner2"
             android:layout_width="87dp"
             android:layout_height="37dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginStart="50dp"
             android:layout_marginTop="20dp"
             tools:ignore="InvalidId"
             android:background="#C5BFBF"/>
@@ -70,16 +70,16 @@
         android:id="@+id/thirdTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="@string/password"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:textColor="#FFFFFF"/>
 
     <EditText
         android:id="@+id/pass2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:ems="10"
         android:layout_marginTop="5dp"
         android:inputType="textPassword"
@@ -90,16 +90,16 @@
         android:id="@+id/fourthTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Confirm Password"
+        android:text="@string/confirm_password"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:textColor="#FFFFFF"/>
 
     <EditText
         android:id="@+id/passconf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:ems="10"
         android:layout_marginTop="5dp"
         android:inputType="textPassword"
@@ -110,17 +110,9 @@
         android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="30dp"
-        android:text="Register" />
+        android:text="@string/register" />
 
-    <TextView android:id="@+id/lnkLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Already Registered? Login here"
-        android:gravity="center"
-        android:textSize="20dp"
-        android:textColor="#FFFFFF"
-        android:onClick="test"/>
+
 </LinearLayout>

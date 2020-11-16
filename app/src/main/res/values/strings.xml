@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">IronFitness</string>
     <string name="name_error">Please enter your name </string>
     <string name="email_error">Please enter an email address</string>
@@ -6,6 +6,32 @@
     <string name="password_error">Please enter a password</string>
     <string name="error_invalid_password">Please enter a valid password</string>
     <string name="passmatcherror">Passwords you have entered do no match </string>
+    <string name="password" tools:ignore="DuplicateDefinition">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="email" tools:ignore="DuplicateDefinition">Email</string>
+    <string name="login">Login</string>
+    <string name="or">OR</string>
+    <string name="register" tools:ignore="DuplicateDefinition">Register</string>
+    <string name="sign_out" tools:ignore="DuplicateDefinition">SIGN OUT</string>
+    <string name="manager">Manager</string>
+    <string name="members">Members</string>
+    <string name="workers">Workers</string>
+    <string name="name" tools:ignore="DuplicateDefinition">Name</string>
+    <string name="subs">Subs</string>
+    <string name="valid">Valid</string>
+    <string name="pending">Pending</string>
+    <string name="pay_now">PAY NOw</string>
+    <string name="token">Token</string>
+    <string name="submit">SUBMIT</string>
+    <string name="if_you_have_not_received_your_token_please_contect_the_below_number">*If you have not received your token please contect the below number</string>
+    <string name="call_iron_fittness">CAll Iron Fittness</string>
+    <string name="subs1">Subs</string>
+    <string name="salary111">Salary</string>
+    <string name="pending11">Pending</string>
+    <string name="working_hours">Working hours</string>
+    <string name="studentse">Students:</string>
+    <string name="students11">Students</string>
     <string-array name="subs">
         <item>700/month</item>
         <item>Null</item>

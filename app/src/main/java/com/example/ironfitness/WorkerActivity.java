@@ -1,5 +1,6 @@
 package com.example.ironfitness;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class WorkerActivity extends AppCompatActivity {
     Worker1 worker = new Worker1();
     Dbhelper db = new Dbhelper(this);
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,12 +52,15 @@ public class WorkerActivity extends AppCompatActivity {
         stat.setText(worker.getsstat());
         sal.setText(String.valueOf(worker.getsal()));
         work.setText(worker.getwhours());
-        if(!db.getmembername(worker.getId()).equals(null)) {
-            stud.setText(String.valueOf(db.getmembername(worker.getId())));
-        }else {
+        if(worker.getsid() != 0) {
+            if (!db.getmembername(worker.getsid()).equals(null)) {
+                stud.setText(String.valueOf(db.getmembername(worker.getId())));
+            } else {
+                stud.setText("User Dosnt Exist");
+            }
+        }else{
             stud.setText("NONE");
         }
-
         signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

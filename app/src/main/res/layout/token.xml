@@ -13,35 +13,35 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="95dp"
+        android:layout_marginStart="95dp"
         android:layout_marginTop="250dp"
         android:background="#E3DFDF"
-        android:hint="Token"
-        android:textSize="80dp" />
+        android:hint="@string/token"
+        android:textSize="80sp" />
 
     <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="136dp"
+        android:layout_marginStart="136dp"
         android:layout_marginTop="40dp"
-        android:text="SUBMIT"
-        android:textSize="26dp" />
+        android:text="@string/submit"
+        android:textSize="26sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="*If you have not received your token please contect the below number"
+        android:text="@string/if_you_have_not_received_your_token_please_contect_the_below_number"
         android:textColor="#FFFFFF"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="50dp"
-        android:textSize="20dp"/>
+        android:layout_marginStart="50dp"
+        android:textSize="20sp"/>
     <Button
         android:id="@+id/call"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
-        android:layout_marginLeft="100dp"
-        android:text="CAll Iron Fittness"
-        android:textSize="16dp"/>
+        android:layout_marginStart="100dp"
+        android:text="@string/call_iron_fittness"
+        android:textSize="16sp"/>
 </LinearLayout>
