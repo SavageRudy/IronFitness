@@ -112,13 +112,6 @@ public class Dbhelper  extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void deleteUser(String name, String pass) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        // delete user record by nme
-        db.delete(Members, "mname = ? , mpass=?",
-                new String[]{String.valueOf(name), String.valueOf(pass)});
-        db.close();
-    }
 
     public String getmembername( int id){
         String name;
@@ -227,11 +220,4 @@ public class Dbhelper  extends SQLiteOpenHelper {
         return db.rawQuery("Select id1 AS _id , name , desg from workers",null);
     }
 
-    public void deleteUser2(String name, String pass) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        // delete user record by nme
-        db.delete(Workers, "mname = ?  and  wpass=?",
-                new String[]{String.valueOf(name), String.valueOf(pass)});
-        db.close();
-    }
 }
